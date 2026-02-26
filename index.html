@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Game Music</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #323236;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .row {
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .image-wrapper {
+      position: relative;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .audio-player {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .audio-player audio {
+      width: 100%;
+    }
+
+    .text-content {
+      background: #525252;
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+    }
+
+    .highlight {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #fff;
+    }
+
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    #lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #ededed;
+    }
+
+    .page-intro {
+      max-width: 900px;
+      margin: 0 auto 1rem auto;
+      text-align: left;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ededed;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">Audio Game Music</h1>
+
+  <p class="page-intro">
+    These pieces of music belong to a living game world — a world of thawing villages, whispering forests, restless rivers, and echoing mountain halls. Each track represents a place, a presence, or a fragment of its history.
+  </p>
+
+  <p class="page-intro">
+    The short descriptions offer glimpses of lore: gods worshipped at harvest, forgotten kings beneath stone, spirits moving through water and mist. The images were generated from these descriptions together with the music itself, allowing sound and story to shape the visual world side by side. For the three tavern songs, the imagery instead grew directly from the song lyrics.
+  </p>
+
+  <p class="page-intro">
+    The vocals were generated using Suno. The music was composed and the texts were written by Niklas Rönnberg, as part of a master’s thesis by Mirijam Björn at Linköping University exploring audio game design and storytelling.
+  </p>
+
+  <div class="container">
+
+    <!-- Song 1 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Forest1 - Fangwold.png" alt="Beneath the Leaves of Fangwold">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Forest1 - Beneath the Leaves of Fangwold.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Forest1 - Beneath the Leaves of Fangwold</span><br>
+          Fangwold - The ancient forest, known for creaking trees, murmuring leaves, and voices that seem just out of reach.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 2 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Forest2 - Morgenwyn.png" alt="Mist Over Morgenwyn">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Forest2 - Mist Over Morgenwyn.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Forest2 - Mist Over Morgenwyn</span><br>
+          Morgenwyn - A glade with a natural spring in Fangwold, a circular opening where water bubbles from stone and the forest falls unnaturally quiet.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 3 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="River1 - Acheris.png" alt="Acheris Almighty">
+        <div class="audio-player">
+          <audio controls>
+            <source src="River1 - Acheris Almighty.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">River1 - Acheris Almighty</span><br>
+          Acheris - The river, fast, cold, and musical—its sound guides travelers through fog and forest alike.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 4 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="River2 - The Lirren.png" alt="Call of the Lirren">
+        <div class="audio-player">
+          <audio controls>
+            <source src="River2 - Call of the Lirren.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">River2 - Call of the Lirren</span><br>
+          The Lirren - Water spirits of the river, playful but dangerous; they sing, splash, and sometimes lure travelers off the path.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 5 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Dungeon1 - Mount Cairndûr.png" alt="Beneath Mount Cairndûr">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Dungeon1 - Beneath Mount Cairndûr.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Dungeon1 - Beneath Mount Cairndûr</span><br>
+          Mount Cairndûr - The great mountain, its deep echoes carry for miles; even the wind sounds heavy near its slopes.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 6 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Dungeon2 -Pyraemna.png" alt="Whispers of Pyraemna">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Dungeon2 - Whispers of Pyraemna.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Dungeon2 - Whispers of Pyraemna</span><br>
+          Pyraemna - Mother of lava and volcanoes, a whispered name, spoken softly—believed to stir whenever the earth groans or stone cracks.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 7 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Dungeon3 - In the Halls of Dòrain.png" alt="In the Halls of Dòrain">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Dungeon3 - In the Halls of Dòrain.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Dungeon3 - In the Halls of Dòrain</span><br>
+          Dòrain - Forgotten dwarven king, builder of the echoing halls beneath the mountain, now remembered only in stone and song.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 8 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Battle - Calling Kargan.png" alt="Calling Kargan">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Battle - Calling Kargan.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Battle - Calling Kargan</span><br>
+          Kargan - giver of courage when strength fails, and of resolve enough to stand before powers greater than oneself.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 9 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Village1 - Greenthaw.png" alt="Arrival of Greenthaw">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Village1 - Arrival of Greenthaw.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Village1 - Arrival of Greenthaw</span><br>
+          Greenthaw - The time when ice loosens its grip and life audibly returns—dripping water, birds, soft winds.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 10 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Village2 - Blessing of Varn.png" alt="Under Varn’s Blessing">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Village2 - Under Varn’s Blessing.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Village2 -  Under Varn’s Blessing</span><br>
+          Varn - The harvest god, revered in taverns and fields alike; thanked at every harvest feast.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 11 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Tavern1 - The Ballad of the Glamoured Toad.png" alt="The Ballad of the Glamoured Toad">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Tavern1 - The Ballad of the Glamoured Toad.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Tavern1 - The Ballad of the Glamoured Toad</span><br>
+          (vocals by Suno)
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 12 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Tavern2 - Poor, oh Poor, Sir Hawkeye.png" alt="Poor, oh Poor, Sir Hawkeye">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Tavern2 - Poor, oh Poor, Sir Hawkeye.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Tavern2 - Poor, oh Poor, Sir Hawkeye</span><br>
+          (vocals by Suno)
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 13 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Tavern3 - An Arrow Took My Pride.png" alt="An Arrow Took My Pride">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Tavern3 - An Arrow Took My Pride.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Tavern3 - An Arrow Took My Pride</span><br>
+          (vocals by Suno)
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="lightbox" style="display:none;">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded image">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const players = document.querySelectorAll("audio");
+
+      players.forEach(player => {
+        player.addEventListener("play", () => {
+          players.forEach(otherPlayer => {
+            if (otherPlayer !== player) {
+              otherPlayer.pause();
+              otherPlayer.currentTime = 0;
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.getElementById("lightbox-close");
+
+      document.querySelectorAll(".image-wrapper img").forEach(img => {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightbox.style.display = "flex";
+        });
+      });
+
+      closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+  </body>
+</html>
