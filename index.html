@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Game Music</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #323236;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .row {
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .image-wrapper {
+      position: relative;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .audio-player {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .audio-player audio {
+      width: 100%;
+    }
+
+    .text-content {
+      background: #525252;
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+    }
+
+    .highlight {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #fff;
+    }
+
+    #lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    #lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #ededed;
+    }
+
+    .page-intro {
+      max-width: 900px;
+      margin: 0 auto 1rem auto;
+      text-align: left;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ededed;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">Game Music</h1>
+
+  <p class="page-intro">
+    The vocals were generated using Suno. The music was composed and the texts were written by Niklas Rönnberg, as part of a master’s thesis at Linköping University exploring audio game design and storytelling.
+  </p>
+
+  <div class="container">
+
+    <!-- Song 1 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Forest1 - Fangwold.png" alt="Beneath the Leaves of Fangwold">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Forest1 - Beneath the Leaves of Fangwold.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Forest1 - Beneath the Leaves of Fangwold</span><br>
+          Fangwold - The ancient forest, known for creaking trees, murmuring leaves, and voices that seem just out of reach.
+        </p>
+      </div>
+    </div>
+
+    <!-- Song 2 -->
+    <div class="row">
+      <div class="image-wrapper">
+        <img src="Forest2 - Morgenwyn.png" alt="Mist Over Morgenwyn">
+        <div class="audio-player">
+          <audio controls>
+            <source src="Forest2 - Mist Over Morgenwyn.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <div class="text-content">
+        <p>
+          <span class="highlight">Forest2 - Mist Over Morgenwyn</span><br>
+          Morgenwyn - A glade with a natural spring in Fangwold, a circular opening where water bubbles from stone and the forest falls unnaturally quiet.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="lightbox" style="display:none;">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded image">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const players = document.querySelectorAll("audio");
+
+      players.forEach(player => {
+        player.addEventListener("play", () => {
+          players.forEach(otherPlayer => {
+            if (otherPlayer !== player) {
+              otherPlayer.pause();
+              otherPlayer.currentTime = 0;
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.getElementById("lightbox-close");
+
+      document.querySelectorAll(".image-wrapper img").forEach(img => {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightbox.style.display = "flex";
+        });
+      });
+
+      closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+  </body>
+</html>
